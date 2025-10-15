@@ -9,7 +9,7 @@ class PlayerController extends Controller
 {
     public function index()
     {
-        $players = Player::with('country')->get(); // Eager loading belangrijk!
+        $players = Player::with('country')->get();
         $countries = Country::all();
 
         return view('players.index', compact('players', 'countries'));

@@ -1,25 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Players</title>
-</head>
-<body>
-<h1>Players</h1>
+<x-app-layout>
+    <ul class="bg-white">
+        @foreach($countries as $country)
+            <li><a href="{{ url('/players/country/'.$country->id) }}">{{ $country->name }}</a></li>
+        @endforeach
+    </ul>
 
-<h3>Filter by Country</h3>
-<ul>
-    @foreach($countries as $country)
-        <li><a href="{{ url('/players/country/'.$country->id) }}">{{ $country->name }}</a></li>
-    @endforeach
-</ul>
+    <hr>
 
-<hr>
-
-<h3>Player List</h3>
-<ul>
-    @foreach($players as $player)
-        <li>{{ $player->name }} ({{ $player->country->name ?? 'No country' }})</li>
-    @endforeach
-</ul>
-</body>
-</html>
+    <h3 class="bg-white">Player List</h3>
+    <ul class="bg-white">
+        @foreach($players as $player)
+            <li>{{ $player->name }} ({{ $player->country->name ?? 'No country' }})</li>
+        @endforeach
+    </ul>
+</x-app-layout>

@@ -33,6 +33,18 @@ Route::get('/contact', function() {
 
 Route::get('/test', function() {
     return view('test');
+})->name('test');
+
+Route::post("/test", function() {
+    request()->validate([
+        'name' => 'required',
+        'country' => 'required',
+    ]);
+    dd(request()->all());
+});
+
+Route::get('/team', function() {
+    return view('teams.team');
 });
 
 Route::get('/blogs', [BlogController::class, 'index']);
