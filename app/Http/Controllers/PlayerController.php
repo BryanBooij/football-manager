@@ -11,8 +11,9 @@ class PlayerController extends Controller
     {
         $players = Player::with('country')->get();
         $countries = Country::all();
+        $currentCountry = null;
 
-        return view('players.index', compact('players', 'countries'));
+        return view('players.index', compact('players', 'countries', 'currentCountry'));
     }
 
     public function filterByCountry($id)
@@ -20,7 +21,9 @@ class PlayerController extends Controller
         $countries = Country::all();
         $players = Player::with('country')->where('country_id', $id)->get();
 
-        return view('players.index', compact('players', 'countries'));
+        $currentCountry = $countries->firstWhere('id', $id);
+
+        return view('players.index', compact('players', 'countries', 'currentCountry'));
     }
 }
 

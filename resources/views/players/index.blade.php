@@ -1,16 +1,25 @@
 <x-app-layout>
-    <ul class="bg-white">
-        @foreach($countries as $country)
-            <li><a href="{{ url('/players/country/'.$country->id) }}">{{ $country->name }}</a></li>
-        @endforeach
-    </ul>
+    <div class="bg-white p-4">
+        <label for="country" class="block text-gray-700">Select country:</label>
+        <select id="country" onchange="window.location.href=this.value" class="mt-2 block w-64 p-2 border rounded-md">
+            <option value="">-- Choose a country --</option>
+            @foreach($countries as $country)
+                <option value="{{ url('/players/country/'.$country->id) }}"
+                    {{ ($currentCountry && $currentCountry->id == $country->id) ? 'selected' : '' }}>
+                    {{ $country->name }}
+                </option>
+            @endforeach
+        </select>
 
-    <hr>
+        <h3>Player List {{ $currentCountry->name ?? 'All Countries' }}</h3>
+    </div>
 
-    <h3 class="bg-white">Player List</h3>
-    <ul class="bg-white">
+    <hr class="my-4">
+
+
+    <ul class="bg-white p-2">
         @foreach($players as $player)
-            <li>{{ $player->name }} ({{ $player->country->name ?? 'No country' }})</li>
+            <li>{{ $player->name }}</li>
         @endforeach
     </ul>
 </x-app-layout>
