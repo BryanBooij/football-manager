@@ -11,7 +11,7 @@
             @endforeach
         </select>
 
-        <h3>Player List {{ $currentCountry->name ?? 'All Countries' }}</h3>
+        <h3>Player List for:  {{ $currentCountry->name ?? 'All Countries' }}</h3>
     </div>
 
     <hr class="my-4">
