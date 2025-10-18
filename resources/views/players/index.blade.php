@@ -11,6 +11,12 @@
             @endforeach
         </select>
 
+        <label for="search" class="block text-gray-700">Or manually select for player name:</label>
+        <form action="{{url('player_search')}}" method="get">
+            <input type="search" name="search">
+            <input type="submit" class="btn-btn-success" value="Search">
+        </form>
+
         <h3>Player List for:  {{ $currentCountry->name ?? 'All Countries' }}</h3>
     </div>
 

@@ -22,6 +22,8 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/players', [PlayerController::class, 'index']);
 Route::get('/players/country/{id}', [PlayerController::class, 'filterByCountry']);
+Route::get('player_search', [PlayerController::class, 'player_search'])->name('player_search');
+
 
 Route::get('/about', function() {
     return view('about');
@@ -46,6 +48,8 @@ Route::post("/test", function() {
 Route::get('/team', function() {
     return view('teams.team');
 });
+
+
 
 Route::get('/blogs', [BlogController::class, 'index']);
 
