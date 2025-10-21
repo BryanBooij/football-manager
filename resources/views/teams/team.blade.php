@@ -1,22 +1,19 @@
 <x-app-layout>
-{{--    @foreach ($teams as $team)--}}
-{{--        <h2>{{ $team->name }}</h2>--}}
-{{--        <a href="{{ route('teams.editPlayers', $team->id) }}">Spelers bewerken</a>--}}
-{{--    @endforeach--}}
+    <div class="container">
+        @if($team)
+            <h1>Mijn team: {{ $team->name }}</h1>
 
-        <form action="{{ route('teams.store') }}" method="POST">
-            @csrf
-            <input type="text" name="name" placeholder="Teamnaam">
-            <button type="submit">Team maken</button>
-        </form>
-
-        <form action="{{ route('teams.addPlayer', $team->id) }}" method="POST">
-            @csrf
-            <select name="player_id">
-                @foreach($players as $player)
-                    <option value="{{ $player->id }}">{{ $player->name }}</option>
-                @endforeach
-            </select>
-            <button type="submit">Voeg toe aan team</button>
-        </form>
+            @if($team->players->count())
+                <ul>
+                    @foreach($team->players as $player)
+                        <li>{{ $player->name }} - {{ $player->position }}</li>
+                    @endforeach
+                </ul>
+            @else
+                <p>Er zijn nog geen spelers in dit team.</p>
+            @endif
+        @else
+            <p>Je hebt nog geen team aangemaakt.</p>
+        @endif
+    </div>
 </x-app-layout>

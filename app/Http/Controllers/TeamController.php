@@ -6,13 +6,21 @@ use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
-    public function addPlayersToTeam(Request $request, TeamController $team)
+//    public function addPlayersToTeam(Request $request, TeamController $team)
+//    {
+//        $playerIds = $request->input('player_ids');
+//
+//        $team->users()->syncWithoutDetaching($playerIds);
+//
+//        return redirect()->back()->with('success', 'Spelers toegevoegd aan het team!');
+//    }
+
+    public function myTeam()
     {
-        $playerIds = $request->input('player_ids');
+        $user = auth()->user();
+        $team = $user->team()->with('players')->first();
 
-        $team->users()->syncWithoutDetaching($playerIds);
-
-        return redirect()->back()->with('success', 'Spelers toegevoegd aan het team!');
+        return view('teams.team', compact('team'));
     }
 
 }

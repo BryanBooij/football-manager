@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\PlayerController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +48,8 @@ Route::post("/test", function() {
 Route::get('/team', function() {
     return view('teams.team');
 });
+
+Route::get('/my-team', [TeamController::class, 'myTeam'])->middleware('auth')->name('my.team');
 
 
 
