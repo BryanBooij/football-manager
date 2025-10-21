@@ -45,13 +45,7 @@ Route::post("/test", function() {
     dd(request()->all());
 });
 
-Route::get('/team', function() {
-    return view('teams.team');
-});
-
 Route::get('/my-team', [TeamController::class, 'myTeam'])->middleware('auth')->name('my.team');
-
-
 
 Route::get('/blogs', [BlogController::class, 'index']);
 

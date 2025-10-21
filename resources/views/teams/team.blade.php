@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="container">
+    <div class="text-center">
         @if($team)
-            <h1>Mijn team: {{ $team->name }}</h1>
+            <h1>My team: {{ $team->name }}</h1>
 
             @if($team->players->count())
                 <ul>
@@ -10,10 +10,10 @@
                     @endforeach
                 </ul>
             @else
-                <p>Er zijn nog geen spelers in dit team.</p>
+                <p>Theres no players in the team</p>
             @endif
         @else
-            <p>Je hebt nog geen team aangemaakt.</p>
+            <p>You haven't made a team yet</p>
         @endif
     </div>
 </x-app-layout>
