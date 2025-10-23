@@ -6,3 +6,5 @@
 18 oktober search engine bouwen met https://www.youtube.com/watch?v=jGE1TEs3Lao
 20 oktober kleine button gemaakt niet veel tijd gehad
 21 oktober verder met de teams hoofdpijn
+23 oktober verder gegaan met error handling in player search pagina om foute zoekacties een error te geven
+
