@@ -32,7 +32,16 @@ class PlayerController extends Controller
         $countries = Country::all();
         $currentCountry = null;
         $player_search = $request->search;
+        //if search field is empty return error message
+        if (empty($player_search)) {
+            return redirect()->back()->with('error', 'Please enter a player name.');
+        }
+        // search for player in database
         $players = Player::where('name', 'like', '%' . $player_search . '%')->paginate(10);
+        // if player not found in database $players===0 return error message
+        if ($players->total() === 0) {
+            return redirect()->back()->with('error', 'Player doesn’t exist.');
+        }
 
         return view('players.index', compact('players', 'countries', 'currentCountry'));
     }
