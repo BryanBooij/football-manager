@@ -50,9 +50,11 @@ class PlayerController extends Controller
 
     public function destroy(Player $player)
     {
-        $player->delete();
+        $team = auth()->user()->team;
 
-        return redirect()->back()->with('success', 'Player deleted!');
+        $team->players()->detach($player->id);
+
+        return redirect()->back()->with('success', 'Player removed from team.');
     }
 
     public function create()

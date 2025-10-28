@@ -19,14 +19,18 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+// player routes for player CRUD
 Route::resource('players', PlayerController::class);
-//Route::get('/players', [PlayerController::class, 'index']);
 Route::get('/players/country/{id}', [PlayerController::class, 'filterByCountry']);
 Route::get('player_search', [PlayerController::class, 'player_search'])->name('player_search');
 Route::get('/players/create', [PlayerController::class, 'create'])->name('players.create');
 Route::post('/players', [PlayerController::class, 'store'])->name('players.store');
 Route::post('/team/add-player/{playerId}', [PlayerController::class, 'addPlayerToTeam'])->name('team.add-player');
 
+// team routes for team delete and create
+Route::post('/teams', [\App\Http\Controllers\TeamController::class, 'store'])->name('teams.store');
+Route::delete('/teams/{team}', [\App\Http\Controllers\TeamController::class, 'destroy'])->name('teams.destroy');
+Route::get('/my-team', [TeamController::class, 'myTeam'])->middleware('auth')->name('my.team');
 
 Route::get('/about', function() {
     return view('about');
@@ -47,8 +51,6 @@ Route::post("/test", function() {
     ]);
     dd(request()->all());
 });
-
-Route::get('/my-team', [TeamController::class, 'myTeam'])->middleware('auth')->name('my.team');
 
 Route::get('/blogs', [BlogController::class, 'index']);
 

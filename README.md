@@ -8,7 +8,7 @@
 21 oktober verder met de teams hoofdpijn
 23 oktober verder gegaan met error handling in player search pagina om foute zoekacties een error te geven
 27 oktober rollen geimplementeerd 
-28 oktober delete knop toegevoegd om spelers te verwijderen uit een team en een add knop toegevoegd om een speler toe te voegen aan een team
+28 oktober delete knop toegevoegd om spelers te verwijderen uit een team en een add knop toegevoegd om een speler toe te voegen aan een team en knop toegevoegd om team aan te maken en team te verwijderen
 
 
 
