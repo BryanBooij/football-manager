@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Player extends Model
 {
+    protected $fillable = [];
+
     public function country()
     {
         return $this->belongsTo(Country::class);

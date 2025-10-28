@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Player;
 use App\Models\Country;
+use App\Models\User;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\Compound;
 
 class PlayerController extends Controller
 {
@@ -52,6 +54,36 @@ class PlayerController extends Controller
 
         return redirect()->back()->with('success', 'Player deleted!');
     }
+
+    public function create()
+    {
+        $currentCountry = null;
+        $countries = Country::all();
+        return view('players.index', compact('countries', 'currentCountry'));
+    }
+
+    public function store(Request $request)
+    {
+        Player::create();
+
+        return redirect()->route('players.index')->with('success', 'Player added!');
+    }
+
+    public function addPlayerToTeam($playerId)
+    {
+        $team = auth()->user()->team;
+
+        if (!$team) {
+            return redirect()->back()->with('error', 'You have no team.');
+        }
+
+        if (!$team->users()->where('speler_id', $playerId)->exists()) {
+            $team->users()->attach($playerId);
+        }
+
+        return redirect()->back()->with('success', 'Player added to your team!');
+    }
+
 }
 
 

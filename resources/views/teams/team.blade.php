@@ -1,12 +1,12 @@
 <x-app-layout>
     <div class="flex flex-col items-center bg-gray-50 text-center">
         @if($team)
-            <h1 class="text-3xl font-semibold mb-6">{{ $team->name }}</h1><br>
+            <h1 class="text-3xl font-semibold mb-6">Team: {{ $team->name }}</h1><br>
 
             @if($team->players->count())
                 <ul>
                     @foreach($team->players as $player)
-                        <li class="mb-2">
+                        <li class="flex items-center justify-between py-1 border-b">
                             {{ $player->name }}
 
                             <!-- delete speler from database -->
@@ -26,7 +26,7 @@
             @endif
             <a href="/players/country/1"
                class="mt-4 inline-block bg-blue-500 hover:bg-blue-600 text-black font-semibold py-2 px-6 rounded-lg shadow">
-                Voeg speler toe
+                Add player
             </a>
         @else
             <p>You haven't made a team yet</p>

@@ -20,9 +20,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::resource('players', PlayerController::class);
-Route::get('/players', [PlayerController::class, 'index']);
+//Route::get('/players', [PlayerController::class, 'index']);
 Route::get('/players/country/{id}', [PlayerController::class, 'filterByCountry']);
 Route::get('player_search', [PlayerController::class, 'player_search'])->name('player_search');
+Route::get('/players/create', [PlayerController::class, 'create'])->name('players.create');
+Route::post('/players', [PlayerController::class, 'store'])->name('players.store');
+Route::post('/team/add-player/{playerId}', [PlayerController::class, 'addPlayerToTeam'])->name('team.add-player');
 
 
 Route::get('/about', function() {
