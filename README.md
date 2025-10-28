@@ -18,8 +18,18 @@
 
 
 TODO:
-https://laracasts.com/series/30-days-to-learn-laravel-11/episodes/23 voor het maken van de crud met rollen
-crud voor team: team kunnen maken en editen en verwijderen
 admin validatie en rollen
 admin heeft toegang tot het verwijderen van elk team en gebruiker alleen van hun eigen team
-filteren per land naar de naam
+filter mogelijkheid kunnen zoeken naar speler naam in een specifiek land dus niet zoeken in elk land naar de speler
+beveiliging OTAP
+schakelen van status met button in lijst
+
+
+voltooide functionaliteiten:
+filteren op land ✅
+zoeken naar speler ✅
+Speler toevoegen aan team ✅
+speler verwijderen aan team ✅
+team maken ✅
+team verwijderen ✅
+
