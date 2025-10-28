@@ -2,9 +2,6 @@
     <div class="fixed top-5 right-5 z-50">
         @if(session('success'))
             <div
-                x-data="{ show: true }"
-                x-show="show"
-                x-init="setTimeout(() => show = false, 3000)"
                 class="bg-green-500 text-black px-4 py-2 rounded shadow-lg transition-all duration-500"
             >
                 {{ session('success') }}
