@@ -12,8 +12,7 @@
     <div class="bg-white p-4 max-w-2xl mx-auto flex flex-col items-center text-center">
         <label for="country" class="block text-gray-700">Select country:</label>
         <select id="country" onchange="window.location.href=this.value"
-                class="mt-2 block w-64 p-2 border rounded-md">
-            <option value="">-- Choose a country --</option>
+                class="mt-4 block w-72 p-3 text-lg border rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             @foreach($countries as $country)
                 <option value="{{ url('/players/country/'.$country->id) }}"
                     {{ ($currentCountry && $currentCountry->id == $country->id) ? 'selected' : '' }}>
