@@ -73,6 +73,10 @@ class PlayerController extends Controller
     {
         $team = auth()->user()->team;
 
+        if ($team->players()->where('player_id', $playerId)->exists()) {
+            return back()->with('error', 'This player is already in the team.');
+        }
+
         if (!$team) {
             return redirect()->back()->with('error', 'You have no team.');
         }
