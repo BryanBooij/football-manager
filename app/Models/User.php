@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -53,5 +54,13 @@ class User extends Authenticatable
     public function teams()
     {
         return $this->belongsToMany(Team::class, 'team_user');
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role=== 0; //0 = admin, 1= gebruiker
+        //if (auth()->user()->isAdmin()){return view('about');}
+        //if (!auth()->user()->isAdmin()){abort(code403);}
+
     }
 }

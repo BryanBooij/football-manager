@@ -7,4 +7,18 @@
 20 oktober kleine button gemaakt niet veel tijd gehad
 21 oktober verder met de teams hoofdpijn
 23 oktober verder gegaan met error handling in player search pagina om foute zoekacties een error te geven
+27 oktober rollen geimplementeerd 
 
+
+
+
+
+
+
+
+TODO:
+https://laracasts.com/series/30-days-to-learn-laravel-11/episodes/23 voor het maken van de crud met rollen
+crud voor team: team kunnen maken en editen en verwijderen
+admin validatie en rollen
+admin heeft toegang tot het verwijderen van elk team en gebruiker alleen van hun eigen team
+filteren per land naar de naam

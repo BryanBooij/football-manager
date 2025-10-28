@@ -45,6 +45,13 @@ class PlayerController extends Controller
 
         return view('players.index', compact('players', 'countries', 'currentCountry'));
     }
+
+    public function destroy(Player $player)
+    {
+        $player->delete();
+
+        return redirect()->back()->with('success', 'Player deleted!');
+    }
 }
 
 

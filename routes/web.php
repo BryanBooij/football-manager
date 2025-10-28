@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
+Route::resource('players', PlayerController::class);
 Route::get('/players', [PlayerController::class, 'index']);
 Route::get('/players/country/{id}', [PlayerController::class, 'filterByCountry']);
 Route::get('player_search', [PlayerController::class, 'player_search'])->name('player_search');
