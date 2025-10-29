@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="flex flex-col items-center bg-gray-50 text-center p-6">
-        <h1 class="text-3xl font-semibold mb-4">{{ $team->name }}</h1>
+        <h1 class="text-3xl font-semibold mb-4">Team naam: {{ $team->name }}</h1>
 
         <a href="{{ route('all.teams') }}"
            class="mb-6 inline-block bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-6 rounded-lg shadow">

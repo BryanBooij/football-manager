@@ -14,6 +14,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// profile
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -32,15 +33,9 @@ Route::post('/teams', [TeamController::class, 'store'])->name('teams.store');
 Route::delete('/teams/{team}', [TeamController::class, 'destroy'])->name('teams.destroy');
 Route::get('/my-team', [TeamController::class, 'myTeam'])->middleware('auth')->name('my.team');
 
-// admin kan alle teams bekijken
-Route::get('/allteams', [TeamController::class, 'allTeams'])->middleware('auth')->name('all.teams');
+// admin can view all teams from users protected by middleware
+Route::get('/allteams', [TeamController::class, 'allTeams'])->middleware('auth', 'is_admin')->name('all.teams');
 Route::get('/teams/{team}', [TeamController::class, 'show'])->name('teams.show');
-
-//Route::middleware(['auth', 'is_admin'])->group(function () {
-//    Route::get('/teams', [TeamController::class, 'allTeams'])->name('allteams');
-//    Route::get('/teams/{team}', [TeamController::class, 'show'])->name('teams.show');
-//});
-
 
 Route::get('/about', function() {
     return view('about');
@@ -52,7 +47,7 @@ Route::get('/contact', function() {
 
 Route::get('/test', function() {
     return view('test');
-})->name('test');
+})->name('test')->middleware('auth', 'is_admin'); ;
 
 Route::post("/test", function() {
     request()->validate([
