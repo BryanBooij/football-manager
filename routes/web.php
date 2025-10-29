@@ -28,9 +28,12 @@ Route::post('/players', [PlayerController::class, 'store'])->name('players.store
 Route::post('/team/add-player/{playerId}', [PlayerController::class, 'addPlayerToTeam'])->name('team.add-player');
 
 // team routes for team delete and create
-Route::post('/teams', [\App\Http\Controllers\TeamController::class, 'store'])->name('teams.store');
-Route::delete('/teams/{team}', [\App\Http\Controllers\TeamController::class, 'destroy'])->name('teams.destroy');
+Route::post('/teams', [TeamController::class, 'store'])->name('teams.store');
+Route::delete('/teams/{team}', [TeamController::class, 'destroy'])->name('teams.destroy');
 Route::get('/my-team', [TeamController::class, 'myTeam'])->middleware('auth')->name('my.team');
+
+// admin kan alle teams bekijken
+Route::get('/allteams', [TeamController::class, 'allTeams'])->middleware('auth')->name('all.teams');
 
 Route::get('/about', function() {
     return view('about');

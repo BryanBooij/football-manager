@@ -16,6 +16,12 @@ class TeamController extends Controller
         return view('teams.team', compact('team'));
     }
 
+    public function allTeams(){
+        $teams = Team::with('players')->get();
+
+        return view('teams.allteams', compact('teams'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([
