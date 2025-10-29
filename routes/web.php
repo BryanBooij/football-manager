@@ -34,6 +34,13 @@ Route::get('/my-team', [TeamController::class, 'myTeam'])->middleware('auth')->n
 
 // admin kan alle teams bekijken
 Route::get('/allteams', [TeamController::class, 'allTeams'])->middleware('auth')->name('all.teams');
+Route::get('/teams/{team}', [TeamController::class, 'show'])->name('teams.show');
+
+//Route::middleware(['auth', 'is_admin'])->group(function () {
+//    Route::get('/teams', [TeamController::class, 'allTeams'])->name('allteams');
+//    Route::get('/teams/{team}', [TeamController::class, 'show'])->name('teams.show');
+//});
+
 
 Route::get('/about', function() {
     return view('about');

@@ -22,6 +22,14 @@ class TeamController extends Controller
         return view('teams.allteams', compact('teams'));
     }
 
+    public function show(Team $team)
+    {
+        $team->load('players');
+
+        return view('teams.show', compact('team'));
+    }
+
+
     public function store(Request $request)
     {
         $request->validate([
