@@ -21,7 +21,7 @@
 28 oktober delete knop toegevoegd om spelers te verwijderen uit een team en een add knop toegevoegd om een speler toe te voegen aan een team en knop toegevoegd om team aan te maken en team te verwijderen
 
 29 oktober teams pagina gemaakt zodat een admin alle teams kan bekijken en middleware toegevoegd zodat alleen een admin toegang kan krijgen tot de pagina 
-
+diepere validatie toegevoegd om een speler naam te zoeken binnen een land
 
 
 
@@ -31,7 +31,7 @@
 TODO:
 admin heeft toegang tot het verwijderen van elk team en gebruiker alleen van hun eigen team
 
-filter mogelijkheid kunnen zoeken naar speler naam in een specifiek land dus niet zoeken in elk land naar de speler
+eigen inlogscherm maken met verplichte velden en controle inhoud denk aan email met validatie dus gebruiker krijgt foutmeldingen te zien die niet te omzeilen zijn door javascript uit te zetten
 
 beveiliging OWASP
 
@@ -43,6 +43,8 @@ schakelen van status met button in lijst
 
 voltooide functionaliteiten:
 filteren op land ✅
+
+filter mogelijkheid kunnen zoeken naar speler naam in een specifiek land dus niet zoeken in elk land naar de speler ✅
 
 zoeken naar speler ✅
 
