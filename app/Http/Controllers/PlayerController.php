@@ -73,15 +73,18 @@ class PlayerController extends Controller
 
     public function addPlayerToTeam($playerId)
     {
+        $user = auth()->user();
+        if (!$user->team) {
+            $createTeamUrl = route('my.team'); // Link naar /my-team
+            return redirect()->back()->with('error', "You don't have a team. <a href='{$createTeamUrl}' class='inline-block underline text-blue-700'>Want to create a team?</a>");
+        }
+
         $team = auth()->user()->team;
 
         if ($team->players()->where('player_id', $playerId)->exists()) {
             return back()->with('error', 'This player is already in the team.');
         }
 
-        if (!$team) {
-            return redirect()->back()->with('error', 'You have no team.');
-        }
 
         if (!$team->users()->where('speler_id', $playerId)->exists()) {
             $team->users()->attach($playerId);

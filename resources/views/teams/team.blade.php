@@ -12,7 +12,9 @@
     <div class="flex flex-col items-center bg-gray-50 text-center">
         @if($team)
             <h1 class="text-3xl font-semibold mb-6">Team: {{ $team->name }}</h1><br>
-            <form action="{{ route('teams.destroy', $team->id) }}" method="POST" class="mb-4">
+
+            <form action="{{ route('teams.destroy', $team->id) }}" method="POST" class="mb-4"
+                  onsubmit="return confirm('Weet je zeker dat je dit team wilt verwijderen?');">
                 @csrf
                 @method('DELETE')
                 <button type="submit"

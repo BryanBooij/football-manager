@@ -29,7 +29,7 @@
 
         @if (session('error'))
             <div class="block text-red-700 mt-2 text-center">
-                {{ session('error') }}
+                {!! session('error') !!}
             </div>
         @endif
 
