@@ -48,6 +48,34 @@ class PlayerController extends Controller
         return view('players.index', compact('players', 'countries', 'currentCountry'));
     }
 
+    public function searchByCountry(Request $request, $country)
+    {
+        $search = $request->input('search_country');
+
+        if (empty($search)) {
+            return redirect()->back()->with('error', 'Please enter a player name.');
+        }
+
+        $currentCountry = Country::find($country);
+
+        if (!$currentCountry) {
+            return redirect()->back()->with('error', 'Country not found');
+        }
+
+        $players = Player::where('country_id', $currentCountry->id)
+            ->where('name', 'LIKE', '%' . $search . '%')
+            ->get();
+
+        if ($players->isEmpty()) {
+            return redirect()->back()->with('error', 'No players found in ' . $currentCountry->name . ' with this name.');
+        }
+
+        $countries = Country::all();
+
+        return view('players.index', compact('players', 'countries', 'currentCountry'));
+    }
+
+
     public function destroy(Player $player)
     {
         $team = auth()->user()->team;

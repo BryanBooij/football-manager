@@ -27,6 +27,14 @@
             <input type="submit" class="bg-green-500 hover:bg-green-600 text-black px-4 py-2 rounded w-32" value="Search">
         </form>
 
+        @if($currentCountry)
+            <label for="search_country" class="block text-gray-700 mt-4">Or Search player name within {{ $currentCountry->name }}:</label>
+            <form action="{{ route('player.searchByCountry', $currentCountry->id) }}" method="get" class="mt-2 w-full flex flex-col items-center">
+                <input type="search" name="search_country" class="border p-2 rounded w-64 mb-2">
+                <input type="submit" class="bg-blue-500 hover:bg-blue-600 text-black px-4 py-2 rounded w-32" value="Search">
+            </form>
+        @endif
+
         @if (session('error'))
             <div class="block text-red-700 mt-2 text-center">
                 {!! session('error') !!}

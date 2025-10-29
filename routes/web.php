@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
 Route::resource('players', PlayerController::class);
 Route::get('/players/country/{id}', [PlayerController::class, 'filterByCountry']);
 Route::get('player_search', [PlayerController::class, 'player_search'])->name('player_search');
+Route::get('player_search_by_country/{country}', [PlayerController::class, 'searchByCountry'])->name('player.searchByCountry');
 Route::get('/players/create', [PlayerController::class, 'create'])->name('players.create');
 Route::post('/players', [PlayerController::class, 'store'])->name('players.store');
 Route::post('/team/add-player/{playerId}', [PlayerController::class, 'addPlayerToTeam'])->name('team.add-player');
