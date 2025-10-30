@@ -23,6 +23,8 @@
 29 oktober teams pagina gemaakt zodat een admin alle teams kan bekijken en middleware toegevoegd zodat alleen een admin toegang kan krijgen tot de pagina 
 diepere validatie toegevoegd om een speler naam te zoeken binnen een land
 
+30 oktober actieve / inactieve knop toegevoegd wat met een ajax response
+
 
 
 

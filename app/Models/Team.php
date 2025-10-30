@@ -9,6 +9,7 @@ class Team extends Model
     protected $fillable = [
         'name',
         'user_id',
+        'active'
     ];
     public function owner()
     {

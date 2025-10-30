@@ -29,6 +29,22 @@ class TeamController extends Controller
         return view('teams.show', compact('team'));
     }
 
+    public function toggleStatus(Team $team)
+    {
+        $team->active = ! $team->active;
+        $team->save();
+
+        // ajax response nodig voor pagina refresh
+        if (request()->ajax() || request()->wantsJson()) {
+            return response()->json([
+                'success' => true,
+                'status'  => $team->active,
+            ]);
+        }
+
+        return redirect()->back();
+    }
+
 
     public function store(Request $request)
     {

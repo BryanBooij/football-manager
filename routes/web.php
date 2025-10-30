@@ -37,6 +37,9 @@ Route::get('/my-team', [TeamController::class, 'myTeam'])->middleware('auth')->n
 // admin can view all teams from users protected by middleware
 Route::get('/allteams', [TeamController::class, 'allTeams'])->middleware('auth', 'is_admin')->name('all.teams');
 Route::get('/teams/{team}', [TeamController::class, 'show'])->name('teams.show');
+Route::post('/teams/{team}/toggle-status', [TeamController::class, 'toggleStatus'])
+    ->name('teams.toggleStatus');
+
 
 Route::get('/about', function() {
     return view('about');
