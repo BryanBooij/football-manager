@@ -25,22 +25,19 @@ diepere validatie toegevoegd om een speler naam te zoeken binnen een land
 
 30 oktober actieve / inactieve knop toegevoegd wat met een ajax response
 
+31 oktober actieve en inactieve knop functioneel gemaakt zodat als deze inactief is een team niet meer bekeken kan worden behalve door een admin en een edit en delete knop toegevoegd aan all teams page voor admins om teams te kunnen editen en verwijderen ook heb ik de all teams page openbaar gemaakt voor alle users zodat users ook andere teams van andere accounts kan bekijken
+
 
 
 
 
 
 TODO:
-admin heeft toegang tot het verwijderen van elk team en gebruiker alleen van hun eigen team
-
 eigen inlogscherm maken met verplichte velden en controle inhoud denk aan email met validatie dus gebruiker krijgt foutmeldingen te zien die niet te omzeilen zijn door javascript uit te zetten
 
 beveiliging OWASP
 
 OTAP
-
-schakelen van status met button in lijst
-
 
 
 voltooide functionaliteiten:
@@ -60,4 +57,6 @@ team verwijderen ✅
 
 admin validatie en rollen ✅
 
+admin heeft toegang tot het verwijderen van elk team en gebruiker alleen van hun eigen team ✅
 
+schakelen van status met button in lijst✅
