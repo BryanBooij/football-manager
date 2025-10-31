@@ -13,6 +13,12 @@ class TeamController extends Controller
         $user = auth()->user();
         $team = $user->team()->with('players')->first();
 
+        if ($team && ! $team->active) {
+            return redirect()
+                ->route('dashboard')
+                ->with('error', 'Your team is inactive and cannot be viewed');
+        }
+
         return view('teams.team', compact('team'));
     }
 
