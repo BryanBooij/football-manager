@@ -25,7 +25,7 @@
                         </button>
                     </form>
                     <div class="flex flex-col gap-2 w-full items-center">
-                        <a href="{{ route('my.team', $team->id) }}"
+                        <a href="{{ route('teams.show', $team->id) }}"
                            class="text-black font-semibold py-1 px-3 text-center w-auto bg-black border rounded-lg">
                             Edit
                         </a>

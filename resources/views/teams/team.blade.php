@@ -12,16 +12,17 @@
     <div class="flex flex-col items-center bg-gray-50 text-center">
         @if($team)
             <h1 class="text-3xl font-semibold mb-6">Team: {{ $team->name }}</h1><br>
-
-            <form action="{{ route('teams.destroy', $team->id) }}" method="POST" class="mb-4"
-                  onsubmit="return confirm('Weet je zeker dat je dit team wilt verwijderen?');">
-                @csrf
-                @method('DELETE')
-                <button type="submit"
-                        class="bg-red-500 hover:bg-red-600 text-black font-semibold py-2 px-6 rounded-lg shadow">
-                    Delete Team
-                </button>
-            </form>
+            @if(auth()->id() === $team->user_id || (auth()->user() && auth()->user()->isAdmin()))
+                <form action="{{ route('teams.destroy', $team->id) }}" method="POST" class="mb-4"
+                      onsubmit="return confirm('Weet je zeker dat je dit team wilt verwijderen?');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit"
+                            class="bg-red-500 hover:bg-red-600 text-black font-semibold py-2 px-6 rounded-lg shadow">
+                        Delete Team
+                    </button>
+                </form>
+            @endif
             @if($team->players->count())
                 <ul>
                     <p class="flex items-center justify-between py-2 px-4 border-b">Spelers: </p>
@@ -30,23 +31,27 @@
                             <span class="text-left">{{ $player->name }}</span>
 
                             <!-- delete speler from database -->
-                            <form action="{{ route('players.destroy', $player->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="bg-red-500 hover:bg-red-600 text-black py-1 px-3 rounded">
-                                    Delete
-                                </button>
-                            </form>
+                            @if(auth()->id() === $team->user_id || (auth()->user() && auth()->user()->isAdmin()))
+                                <form action="{{ route('players.destroy', $player->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-black py-1 px-3 rounded">
+                                        Delete
+                                    </button>
+                                </form>
+                            @endif
                         </li>
                     @endforeach
                 </ul>
             @else
                 <p>Theres no players in the team</p>
             @endif
-            <a href="/players/country/1"
-               class="mt-4 inline-block bg-blue-500 hover:bg-blue-600 text-black font-semibold py-2 px-6 rounded-lg shadow">
-                Add player
-            </a>
+            @if(auth()->id() === $team->user_id || (auth()->user() && auth()->user()->isAdmin()))
+                <a href="/players/country/1"
+                   class="mt-4 inline-block bg-blue-500 hover:bg-blue-600 text-black font-semibold py-2 px-6 rounded-lg shadow">
+                    Add player
+                </a>
+            @endif
         @else
             <p>You haven't made a team yet</p>
             <p>Create a team here</p>
