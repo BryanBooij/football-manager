@@ -23,7 +23,13 @@ class TeamController extends Controller
     }
 
     public function allTeams(){
-        $teams = Team::with('players')->get();
+        $user = auth()->user();
+
+        if ($user->isAdmin()) {
+            $teams = Team::with('players')->get();
+        } else {
+            $teams = Team::with('players')->where('active', true)->get();
+        }
 
         return view('teams.allteams', compact('teams'));
     }
@@ -32,7 +38,7 @@ class TeamController extends Controller
     {
         $team->load('players');
 
-        return view('teams.show', compact('team'));
+        return view('teams.team', compact('team'));
     }
 
     public function toggleStatus(Team $team)
@@ -58,7 +64,7 @@ class TeamController extends Controller
             'name' => 'required|string|max:255',
         ]);
 
-        $team = \App\Models\Team::create([
+        Team::create([
             'name' => $request->name,
             'user_id' => auth()->id(),
         ]);
@@ -68,7 +74,8 @@ class TeamController extends Controller
 
     public function destroy(Team $team)
     {
-        if ($team->user_id !== auth()->id()) {
+        // gebruiker of admin kan team verwijderen
+        if ($team->user_id !== auth()->id() && !auth()->user()->isAdmin()) {
             abort(403);
         }
 

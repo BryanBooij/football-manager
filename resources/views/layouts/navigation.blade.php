@@ -17,13 +17,12 @@
                             {{ __('Test page') }}
                         </x-nav-link>
                     </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex text-white">
-                        <x-nav-link :href="route('all.teams')" :active="request()->routeIs('all.teams')">
-                            {{ __('All teams') }}
-                        </x-nav-link>
-                    </div>
-
                 @endif
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex text-white">
+                    <x-nav-link :href="route('all.teams')" :active="request()->routeIs('all.teams')">
+                        {{ __('All teams') }}
+                    </x-nav-link>
+                </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex text-white">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('dashboard') }}

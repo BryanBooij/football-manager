@@ -35,9 +35,9 @@ Route::delete('/teams/{team}', [TeamController::class, 'destroy'])->name('teams.
 Route::get('/my-team', [TeamController::class, 'myTeam'])->middleware('auth')->name('my.team');
 
 // admin can view all teams from users protected by middleware
-Route::get('/allteams', [TeamController::class, 'allTeams'])->middleware('auth', 'is_admin')->name('all.teams');
+Route::get('/allteams', [TeamController::class, 'allTeams'])->middleware('auth')->name('all.teams');
 Route::get('/teams/{team}', [TeamController::class, 'show'])->name('teams.show')->middleware('auth');
-Route::post('/teams/{team}/toggle-status', [TeamController::class, 'toggleStatus'])->name('teams.toggleStatus');
+Route::post('/teams/{team}/toggle-status', [TeamController::class, 'toggleStatus'])->name('teams.toggleStatus')->middleware('auth', 'is_admin');
 
 
 Route::get('/about', function() {
