@@ -18,7 +18,7 @@
         </div>
     @endif
     <div class="flex flex-col items-center content-center mt-4">
-        <form method="POST" action="{{ route('profile.update') }}">
+        <form method="POST" action="{{ route('custom.profile.update') }}">
             @csrf
             <div>
                 <label>Naam:</label>
@@ -41,6 +41,14 @@
             </div>
 
             <button type="submit">Opslaan</button>
+        </form>
+        <form method="POST" action="{{ route('custom.profile.destroy') }}" onsubmit="function confirmDelete() {
+        return confirm('Are you sure you want to delete your account?');
+        }
+        return confirmDelete()">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="danger-btn">Delete my account</button>
         </form>
     </div>
 </x-app-layout>

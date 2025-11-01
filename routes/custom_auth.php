@@ -18,6 +18,10 @@ Route::prefix('custom')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::get('profile', [ProfileController::class, 'edit'])->name('custom.profile.edit');
         Route::post('profile', [ProfileController::class, 'update'])->name('custom.profile.update');
+        Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });
+
+    Route::delete('profile/delete', [ProfileController::class, 'destroy'])->name('custom.profile.destroy');
+
 
 });

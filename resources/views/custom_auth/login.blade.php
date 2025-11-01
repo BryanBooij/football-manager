@@ -7,7 +7,7 @@
         </div>
         <div class="mt-4">
             <label class="text-white">Password:</label>
-            <input class="text-white" type="password" name="password" required>
+            <input type="password" name="password" required>
         </div>
         <a
             href="{{ route('custom.register') }}"
@@ -16,7 +16,7 @@
         </a>
         <x-primary-button class="ms-3">
             {{ __('Log in') }}
-        </x-primary-button>>
+        </x-primary-button>
     </form>
 </x-guest-layout>
 
