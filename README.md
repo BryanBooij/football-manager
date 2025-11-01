@@ -27,7 +27,7 @@ diepere validatie toegevoegd om een speler naam te zoeken binnen een land
 
 31 oktober actieve en inactieve knop functioneel gemaakt zodat als deze inactief is een team niet meer bekeken kan worden behalve door een admin en een edit en delete knop toegevoegd aan all teams page voor admins om teams te kunnen editen en verwijderen ook heb ik de all teams page openbaar gemaakt voor alle users zodat users ook andere teams van andere accounts kan bekijken
 
-
+1 november diepere validatie comments op de teams pagina
 
 
 
@@ -38,6 +38,8 @@ eigen inlogscherm maken met verplichte velden en controle inhoud denk aan email 
 beveiliging OWASP
 
 OTAP
+
+diepere validatie
 
 
 voltooide functionaliteiten:
