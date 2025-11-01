@@ -24,7 +24,7 @@ class CommentController extends Controller
         Comment::create([
             'team_id' => $teamId,
             'user_id' => $user->id,
-            'content' => $request->content,
+            'content' => $request->input('content'),
         ]);
 
         return redirect()->back()->with('success', 'Comment posted!');

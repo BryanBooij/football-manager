@@ -23,8 +23,9 @@ class TrackUserLogin
     public function handle(Login $event): void
     {
         $user = $event->user;
+        $userId = $user->getAuthIdentifier();
 
-        $loginRecord = UserLogin::firstOrCreate(['user_id' => $user->id]);
+        $loginRecord = UserLogin::firstOrCreate(['user_id' => $userId]);
         $loginRecord->increment('login_count');
     }
 }
