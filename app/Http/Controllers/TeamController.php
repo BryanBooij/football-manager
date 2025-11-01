@@ -38,7 +38,7 @@ class TeamController extends Controller
     {
         $team->load('players');
 
-        return view('teams.team', compact('team'));
+        return view('teams.show', compact('team'));
     }
 
     public function toggleStatus(Team $team)

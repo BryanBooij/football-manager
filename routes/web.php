@@ -39,6 +39,8 @@ Route::get('/allteams', [TeamController::class, 'allTeams'])->middleware('auth')
 Route::get('/teams/{team}', [TeamController::class, 'show'])->name('teams.show')->middleware('auth');
 Route::post('/teams/{team}/toggle-status', [TeamController::class, 'toggleStatus'])->name('teams.toggleStatus')->middleware('auth', 'is_admin');
 
+// comments
+Route::post('/teams/{team}/comments', [\App\Http\Controllers\CommentController::class, 'store'])->middleware('auth')->name('comments.store');
 
 Route::get('/about', function() {
     return view('about');

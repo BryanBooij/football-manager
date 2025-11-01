@@ -26,5 +26,9 @@ class Team extends Model
         return $this->belongsToMany(Player::class, 'team_user', 'team_id', 'player_id');
     }
 
+    public function comments()
+    {
+        return $this->hasMany(\App\Models\Comment::class);
+    }
 
 }

@@ -61,6 +61,15 @@ class User extends Authenticatable
         return $this->role=== 0; //0 = admin, 1= gebruiker
         //if (auth()->user()->isAdmin()){return view('about');}
         //if (!auth()->user()->isAdmin()){abort(code403);}
+    }
 
+    public function loginTracker()
+    {
+        return $this->hasOne(\App\Models\UserLogin::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(\App\Models\Comment::class);
     }
 }
