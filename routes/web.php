@@ -14,12 +14,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// profile
+// profile breeze
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 // player routes for player CRUD
 Route::resource('players', PlayerController::class);
 Route::get('/players/country/{id}', [PlayerController::class, 'filterByCountry']);
@@ -64,4 +65,5 @@ Route::post("/test", function() {
 
 Route::get('/blogs', [BlogController::class, 'index']);
 
+require __DIR__.'/custom_auth.php';
 require __DIR__.'/auth.php';

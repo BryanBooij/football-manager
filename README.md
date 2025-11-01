@@ -27,12 +27,11 @@ diepere validatie toegevoegd om een speler naam te zoeken binnen een land
 
 31 oktober actieve en inactieve knop functioneel gemaakt zodat als deze inactief is een team niet meer bekeken kan worden behalve door een admin en een edit en delete knop toegevoegd aan all teams page voor admins om teams te kunnen editen en verwijderen ook heb ik de all teams page openbaar gemaakt voor alle users zodat users ook andere teams van andere accounts kan bekijken
 
-1 november checken hoevaak een user is ingelogd in de app, maken van een comment functie waarin een gebruiker minimaal 5x moet inloggen voordat hij/zij mag commenten
+1 november checken hoevaak een user is ingelogd in de app, maken van een comment functie waarin een gebruiker minimaal 5x moet inloggen voordat hij/zij mag commenten en nieuwe inlog/register en profiel pagina
 
 
 
 TODO:
-eigen inlogscherm maken met verplichte velden en controle inhoud denk aan email met validatie dus gebruiker krijgt foutmeldingen te zien die niet te omzeilen zijn door javascript uit te zetten
 
 beveiliging OWASP
 
@@ -63,3 +62,6 @@ schakelen van status met button in lijst ✅
 gebruiker kan commenten op een team ✅
 
 gebruiker kan pas commenten nadat hij/zij minimaal 5x is ingelogd (diepere validatie) ✅
+
+eigen inlogscherm maken met verplichte velden en controle inhoud denk aan email met validatie dus gebruiker krijgt foutmeldingen te zien die niet te omzeilen zijn door javascript uit te zetten ✅
+
