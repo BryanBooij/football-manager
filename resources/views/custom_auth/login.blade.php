@@ -1,4 +1,13 @@
 <x-guest-layout>
+    @if ($errors->any())
+        <div style="color: red; margin-bottom: 10px;">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form method="POST" action="{{ route('custom.login') }}">
         @csrf
         <div class="mt-4">

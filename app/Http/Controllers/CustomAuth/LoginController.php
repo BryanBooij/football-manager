@@ -26,8 +26,8 @@ class LoginController extends Controller
             return redirect()->intended(route('dashboard'));
         }
 
-        throw ValidationException::withMessages([
-            'email' => ['Login failed!'],
-        ]);
+        return back()->withErrors([
+            'email' => 'Incorrect username or password.',
+        ])->onlyInput('email');
     }
 }
