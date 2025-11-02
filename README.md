@@ -30,6 +30,7 @@ diepere validatie toegevoegd om een speler naam te zoeken binnen een land
 1 november checken hoevaak een user is ingelogd in de app, maken van een comment functie waarin een gebruiker minimaal 5x moet inloggen voordat hij/zij mag commenten en nieuwe inlog/register en profiel pagina
 de gebruiker kan zijn inloggegevens aanpassen en eventueel account verwijderen
 
+2 november cascade juist toegevoegd aan users tabel zodat wanneer een user zijn of haar account verwijderd alle bijbehoorende teams worden verwijderd uit de database
 
 
 TODO:
