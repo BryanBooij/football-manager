@@ -22,6 +22,13 @@ class TeamController extends Controller
         return view('teams.team', compact('team'));
     }
 
+    public function edit(Team $team)
+    {
+        $team->load('users'); // laad spelers
+
+        return view('teams.edit', compact('team'));
+    }
+
     public function allTeams(){
         $user = auth()->user();
 

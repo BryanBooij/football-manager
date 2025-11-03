@@ -65,6 +65,6 @@
                     </div>
                 @endforeach
             </div>
-        </div>
+        </div><br>
     @endif
 </x-app-layout>

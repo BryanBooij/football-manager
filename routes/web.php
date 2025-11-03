@@ -39,6 +39,7 @@ Route::get('/my-team', [TeamController::class, 'myTeam'])->middleware('auth')->n
 Route::get('/allteams', [TeamController::class, 'allTeams'])->middleware('auth')->name('all.teams');
 Route::get('/teams/{team}', [TeamController::class, 'show'])->name('teams.show')->middleware('auth');
 Route::post('/teams/{team}/toggle-status', [TeamController::class, 'toggleStatus'])->name('teams.toggleStatus')->middleware('auth', 'is_admin');
+Route::get('/teams/{team}/edit', [TeamController::class, 'edit'])->name('teams.edit')->middleware(['auth', 'is_admin']);
 
 // comments
 Route::post('/teams/{team}/comments', [\App\Http\Controllers\CommentController::class, 'store'])->middleware('auth')->name('comments.store');
